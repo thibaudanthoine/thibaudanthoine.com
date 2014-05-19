@@ -1,0 +1,17 @@
+{
+  "name": "thibaudanthoine.com",
+  "version": "1.0.0",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.0.2",
+    "sass-bootstrap": "~3.0.0",
+    "font-awesome": "*",
+    "alertify" : "*"
+  }
+}

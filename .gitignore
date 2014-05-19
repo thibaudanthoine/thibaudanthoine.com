@@ -1,0 +1,7 @@
+/dist
+/node_modules
+/src/vendor
+/.sass-cache
+/src/css
+/src/sass
+.DS_Store

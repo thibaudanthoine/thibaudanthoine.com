@@ -1,0 +1,32 @@
+{
+  "name": "thibaudanthoine.com",
+  "description": "My personal website",
+  "homepage": "http://www.thibaudanthoine.com",
+  "version": "1.0.0",
+  "author": {
+    "name": "Thibaud Anthoine",
+    "url": "http://www.thibaudanthoine.com/"
+  },
+  "scripts": {
+    "test": "grunt htmlhint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/thibaudanthoine/thibaudanthoine.com.git"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.2",
+    "grunt-contrib-copy": "*",
+    "grunt-contrib-jshint": "~0.6.3",
+    "grunt-contrib-nodeunit": "~0.2.0",
+    "grunt-contrib-concat": "*",
+    "grunt-contrib-uglify": "*",
+    "grunt-htmlhint": "*",
+    "jshint-stylish": "~0.1.4",
+    "grunt-contrib-compass": "~0.6.0",
+    "grunt-contrib-cssmin": "*",
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt-sass": "~0.6.0",
+    "matchdep": "*"
+  }
+}

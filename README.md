@@ -1,4 +1,5 @@
 thibaudanthoine.com
 ===================
 
-My personal website
+My personal website.
+Using Sass, Compass, Node and Grunt.
