@@ -5,6 +5,7 @@
     "**/.*",
     "node_modules",
     "bower_components",
+    "src/vendor",
     "test",
     "tests"
   ],
@@ -12,6 +13,6 @@
     "bootstrap": "~3.0.2",
     "sass-bootstrap": "~3.0.0",
     "font-awesome": "*",
-    "alertify" : "*"
+    "alertify" : "~0.3.10"
   }
 }

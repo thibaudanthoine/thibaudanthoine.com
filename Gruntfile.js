@@ -65,7 +65,7 @@ module.exports = function (grunt) {
       },
       dist: {
         files: {
-          '<%= config.dist %>/js/lib.min.js': [
+          '<%= config.dist %>/js/script.min.js': [
             '<%= bower.directory %>/jquery/dist/jquery.js',
             '<%= bower.directory %>/bootstrap/dist/js/bootstrap.js',
             '<%= bower.directory %>/alertify/alertify.js'
@@ -91,20 +91,6 @@ module.exports = function (grunt) {
         }
       }
     },
-
-    /*cssmin: {
-      build: {
-        files: {
-          '<%= config.dist %>/style.css': [
-            '<%= config.app %>/vendor/bootstrap/dist/css/bootstrap.min.css',
-            '<%= config.app %>/vendor/font-awesome/css/font-awesome.min.css',
-            '<%= config.app %>/vendor/alertify/themes/alertify.core.css',
-            '<%= config.app %>/vendor/alertify/themes/alertify.bootstrap.css',
-            '<%= config.app %>/css/style.css'
-          ]
-        }
-      }
-    },*/
 
     watch: {
       html: {
