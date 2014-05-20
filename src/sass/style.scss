@@ -4,8 +4,8 @@ $fa-font-path:  "../../src/vendor/font-awesome/fonts";
 @import "../vendor/font-awesome/scss/font-awesome";
 
 body {
-  font: 13px Helvetica, arial, freesans, clean, sans-serif;
-  font-size: 16px;
+  font-family: Ruluko, Arial, sans-serif;
+  font-size: 17px;
   line-height: 24px;
   color: #555;
   font-weight: 200;
@@ -35,7 +35,7 @@ a {
 section { padding: 30px 0 }
 #about { padding-top: 100px; background: #f4f2f3 }
 
-h1, h2, h3, h4, h5, h6 { color:#555; font-family: 'Dosis' }
+h1, h2, h3, h4, h5, h6 { color:#555; font-family: Ruluko, arial, sans-serif }
 h1 {
   font-weight: 600;
   text-transform: uppercase;
@@ -43,14 +43,14 @@ h1 {
   font-family: 'Dosis';
   color: #312529;
 }
-h2 { font-size: 28px; }
+h2 { font-size: 30px; }
 h3 { font-size: 24px; }
 h4 { font-size: 20px; }
 h5 { font-size: 18px; }
 h6 { font-size: 16px; }
 
 .lead {
-  font-family: 'Dosis';
+  font-family: Ruluko, arial, sans-serif;
   font-size: 24px;
   font-weight: 400;
   line-height: 40px;
@@ -98,7 +98,7 @@ p { margin-bottom: 20px; }
 }
 #menu a {  
   color: #f4f2f3;
-  font-size: 12px;
+  font-size: 14px;
   text-transform: uppercase;
 }
 #menu li { float: left; padding: 0px 0px 0 20px; }
@@ -160,7 +160,7 @@ input { outline:none }
 	margin-right: 10px;
 }
 
-#contact h2 { color: #f0f0f0; line-height:40px }
+#contact h2 { color: #f0f0f0; line-height:44px }
 #contact a { color: #444 }
 #contact a:hover { color: #f0f0f0 }
 .inverse { color: #444 }
