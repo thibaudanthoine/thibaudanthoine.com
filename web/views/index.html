@@ -170,13 +170,13 @@
             url: 'mail',
             data: $('#ajax-contact-form').serialize(),
             success: function(json) {
-              alertify.success(json.message);
+              alertify.success(json.responseJSON.message);
               $('#name, #email, #subject, #message').each(function() {
                 $(this).val('');
               });
             },
             error: function(json) {
-              alertify.error(json.message);
+              alertify.error(json.responseJSON.message);
             },
             complete: function() {
               $('#ajax-contact-form').find('input[type=submit]').attr('disabled', false);

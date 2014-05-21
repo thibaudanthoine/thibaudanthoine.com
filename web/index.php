@@ -28,8 +28,17 @@ $app->post('/mail', function() use ($app) {
 
     $errors = $app['validator']->validateValue($app['request']->request->all(), $constraints);
 
-    if (count($errors) > 0) {
-        return $app->json(array('message' => (string) $errors), 404);
+    $errorMessages = array();
+    foreach ($errors as $error){
+        $errorMessages[] = sprintf(
+            '%s: %s',
+            preg_replace('/\[|\]/', "", $error->getPropertyPath()),
+            $error->getMessage()
+        );
+    }
+
+    if (count($errorMessages) > 0) {
+        return $app->json(array('message' => implode('<br />', $errorMessages)), 404);
     }
 
     $message = \Swift_Message::newInstance()
