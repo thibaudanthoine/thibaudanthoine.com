@@ -12,14 +12,14 @@
     <meta name="google-site-verification" content="0xwR_9Zn6ylz0dCw4KEa3tyNG39mgMqZQOX8eyg7s7I" />
 
     <title>Thibaud</title>
-    <link rel="shortcut icon" href="dist/img/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="../../dist/img/favicon.ico" type="image/x-icon" />
     <link rel="canonical" href="http://www.thibaudanthoine.com" />
 
-    <link rel="stylesheet" type="text/css" href="src/vendor/alertify/themes/alertify.core.css" />
-    <link rel="stylesheet" type="text/css" href="src/vendor/alertify/themes/alertify.bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="../../src/vendor/alertify/themes/alertify.core.css" />
+    <link rel="stylesheet" type="text/css" href="../../src/vendor/alertify/themes/alertify.bootstrap.css" />
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Dosis" />
     <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ruluko" />
-    <link rel="stylesheet" type="text/css" href="dist/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="../../dist/css/style.css" />
 
     <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
@@ -29,8 +29,8 @@
   <body>
 
     <figure class="avatar-wrapper">
-      <a href="/" style="background-image: url(dist/img/tib.jpg)" class="user-avatar">
-        <img src="dist/img/tib.jpg" alt="Thibaud" class="invisible" />
+      <a href="/" style="background-image: url(../../dist/img/tib.jpg)" class="user-avatar">
+        <img src="../../dist/img/tib.jpg" alt="Thibaud" class="invisible" />
       </a>
     </figure>
 
@@ -159,24 +159,27 @@
       </div>
     </footer>
 
-    <script src="dist/js/script.min.js"></script>
+    <script src="../../dist/js/script.min.js"></script>
     <script>
       $(function() {
         $('#ajax-contact-form').submit(function(e) {
           e.preventDefault();
+          $('#ajax-contact-form').find('input[type=submit]').attr('disabled', 'disabled');
           $.ajax({
             type: 'post',
-            url: 'mail.php',
+            url: 'mail',
             data: $('#ajax-contact-form').serialize(),
             success: function(json) {
-              if (json.status == 1) {
-                alertify.success('Email successfully sent');
-                $('#name, #email, #subject, #message').each(function() {
-                  $(this).val('');
-                });
-              } else {
-                alertify.error('Error');
-              }
+              alertify.success(json.message);
+              $('#name, #email, #subject, #message').each(function() {
+                $(this).val('');
+              });
+            },
+            error: function(json) {
+              alertify.error(json.message);
+            },
+            complete: function() {
+              $('#ajax-contact-form').find('input[type=submit]').attr('disabled', false);
             }
           });
         });
