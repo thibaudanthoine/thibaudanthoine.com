@@ -3,6 +3,8 @@
         "silex/silex": "~1.2",
         "swiftmailer/swiftmailer": ">=4.1.2,<4.2-dev",
         "twig/twig": "1.*",
-        "symfony/validator": "~2.3"
+        "symfony/validator": "~2.3",
+        "symfony/yaml": "2.4.*",
+        "deralex/yaml-config-service-provider": "1.0.*@dev"
     }
 }

@@ -1,5 +1,8 @@
 Options -MultiViews
 RewriteEngine On
+
+#RewriteRule ^(.*\.(woff|ttf|svg|js|ico|gif|jpg|png|css|htc|xml|txt))$ /dist/$1
+
 RewriteBase /web
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^ index.php [L]

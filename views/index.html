@@ -86,7 +86,7 @@
             <div class="row">
               <div class="col-sm-6 col-lg-6">
               
-                <h2>Intéressé par mon profil,<br>ou simplement une question ou un commentaire ?</h2> 
+                <h2>Intéressé par mes compétences,<br>ou simplement une question ou un commentaire ?</h2>
               
                 <p>
                   Contactez moi par mail ou via le formulaire.<br>
@@ -154,7 +154,7 @@
         </a>
         <div id="copyright">
           &copy; 2014 Thibaud
-          <a href="#">Made with HTML5, CSS3, Javascript, Node, Npm, Grunt, Sass, Compass.</a>
+          <a href="#">Made with Silex, HTML5, CSS3, Javascript, Node, Npm, Grunt, Sass, Compass.</a>
         </div>
       </div>
     </footer>
@@ -177,6 +177,7 @@
             },
             error: function(json) {
               alertify.error(json.responseJSON.message);
+              $('#ajax-contact-form').find('input[type=submit]').attr('disabled', false);
             },
             complete: function() {
               $('#ajax-contact-form').find('input[type=submit]').attr('disabled', false);

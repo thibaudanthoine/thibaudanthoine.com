@@ -7,3 +7,4 @@
 .idea
 /vendor
 /composer.lock
+/app/config/settings.yml

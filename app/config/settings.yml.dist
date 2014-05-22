@@ -1,0 +1,7 @@
+swiftmailer:
+    host: host
+    port: 25
+    username: username
+    password: password
+    encryption:
+    auth_mode: login
