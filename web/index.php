@@ -58,7 +58,7 @@ $app->post('/mail', function() use ($app) {
     try {
         $message = \Swift_Message::newInstance()
             ->setSubject(sprintf(
-                '[thibaudanthoine.com][%s] %s',
+                '[ %s ] %s',
                 $app['request']->get('name'),
                 $app['request']->get('subject')
             ))
