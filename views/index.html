@@ -170,16 +170,14 @@
             url: 'mail',
             data: $('#ajax-contact-form').serialize(),
             success: function(json) {
-              alertify.success(json.responseJSON.message);
+              alertify.success(json.message);
+              $('#ajax-contact-form').find('input[type=submit]').attr('disabled', false);
               $('#name, #email, #subject, #message').each(function() {
                 $(this).val('');
               });
             },
             error: function(json) {
               alertify.error(json.responseJSON.message);
-              $('#ajax-contact-form').find('input[type=submit]').attr('disabled', false);
-            },
-            complete: function() {
               $('#ajax-contact-form').find('input[type=submit]').attr('disabled', false);
             }
           });

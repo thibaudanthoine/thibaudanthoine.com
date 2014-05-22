@@ -24,9 +24,9 @@ $app->register(new Silex\Provider\TwigServiceProvider(), array(
     'twig.path' => __DIR__ . '/../views'
 ));
 
-$app['mailer'] = $app->share(function ($app) {
-    return new \Swift_Mailer($app['swiftmailer.transport']);
-});
+//$app['mailer'] = $app->share(function ($app) {
+//    return new \Swift_Mailer($app['swiftmailer.transport']);
+//});
 
 $app->get('/', function() use ($app) {
     return $app['twig']->render('index.html', array());
@@ -69,7 +69,7 @@ $app->post('/mail', function() use ($app) {
         $app['mailer']->send($message);
     }
     catch (\Exception $e) {
-        return $app->json(array('message' => 'Sorry, unable to send email'), 404);
+        return $app->json(array('message' => 'Sorry, unable to send email'), 500);
     }
 
     return $app->json(array('message' => 'Thank you for your message'));
