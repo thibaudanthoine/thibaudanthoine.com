@@ -1,3 +1,5 @@
+SetEnv PHP_VER 5_4
+
 Options -MultiViews
 RewriteEngine On
 
