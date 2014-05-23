@@ -46,7 +46,7 @@ $app->post('/mail', function() use ($app) {
     foreach ($errors as $error){
         $errorMessages[] = sprintf(
             '%s: %s',
-            preg_replace('/\[|\]/', "", $error->getPropertyPath()),
+            preg_replace('/\[|\]/', '', $error->getPropertyPath()),
             $error->getMessage()
         );
     }
