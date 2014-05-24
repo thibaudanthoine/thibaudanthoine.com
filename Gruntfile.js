@@ -78,7 +78,7 @@ module.exports = function (grunt) {
       dist: {
         options: {
           sassDir: '<%= config.app %>/sass',
-          cssDir: '<%= config.dist %>/css',
+          cssDir: '<%= config.app %>/css',
           environment: 'production',
           outputStyle: 'compressed'
         }
@@ -89,6 +89,24 @@ module.exports = function (grunt) {
           cssDir: '<%= config.app %>/css',
           outputStyle: 'expanded'
         }
+      }
+    },
+
+    concat: {
+      css: {
+        src: [
+          '<%= config.app %>/css/*',
+          '<%= config.app %>/vendor/alertify/themes/alertify.core.css',
+          '<%= config.app %>/vendor/alertify/themes/alertify.bootstrap.css'
+        ],
+        dest: '<%= config.dist %>/css/style.css'
+      }
+    },
+
+    cssmin: {
+      css: {
+        src: '<%= config.dist %>/css/style.css',
+        dest: '<%= config.dist %>/css/style.min.css'
       }
     },
 
@@ -106,13 +124,13 @@ module.exports = function (grunt) {
       },
       css: {
         files: ['<%= config.app %>/sass/**/*.scss'],
-        tasks: ['compass:dist'],
+        tasks: ['compass:dist', 'concat:css', 'cssmin:css'],
         options: {
-          spawn: false
+            spawn: false
         }
       }
     }
   });
 
-  grunt.registerTask('default', ['htmlhint', 'copy', 'jshint', 'uglify', 'compass', 'watch']);
+  grunt.registerTask('default', ['htmlhint', 'copy', 'jshint', 'uglify', 'compass', 'concat:css', 'cssmin:css', 'watch']);
 };

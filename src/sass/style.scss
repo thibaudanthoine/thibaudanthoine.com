@@ -1,54 +1,24 @@
 @import "base";
-@import "../vendor/sass-bootstrap/lib/bootstrap";
-$fa-font-path:  "../../src/vendor/font-awesome/fonts";
-@import "../vendor/font-awesome/scss/font-awesome";
 
 body {
-  font-family: Ruluko, Arial, Sans-Serif;
+  font-family: $font-stack;
   font-size: 17px;
   line-height: 24px;
   color: #555;
   font-weight: 200;
-  background: #f0f0f0;
+  background: $primary-color;
   margin: 0;
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
   -webkit-font-smoothing: subpixel-antialiased;
-  height: 100%;
-  width: 100%;
 }
 
-a, a:visited, a:hover, a:active, a:focus, input, select, textarea { outline: none; text-decoration: none }
-a:hover { color:#333 }
-:focus, .btn:focus { outline: 0 }
-.center { margin:0 auto }
-.fa-li { margin-left:-8px; padding-top:2px }
-.container { overflow: hidden }
-.fa { text-rendering: auto }
-.highlighted { color:#E84E41 }
-
-a {
-  -webkit-transition: all 0.3s ease-in-out;
-  -moz-transition: all 0.3s ease-in-out;
-  -o-transition: all 0.3s ease-in-out;
-  -ms-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
-  color: #E84E41;
-}
-
-section { padding: 30px 0 }
-#about { padding-top: 100px; background: #f4f2f3 }
-
-h1, h2, h3, h4, h5, h6 {
-  color:#555;
-  font-family: Ruluko, arial, Sans-Serif;
-}
+h2, h3, h4, h5, h6 { font-family: $font-stack }
 
 h1 {
   font-weight: 600;
   text-transform: uppercase;
   font-size: 58px;
-  font-family: 'Dosis';
-  color: #312529;
+  font-family: $secondary-font-stack
 }
 h2 { font-size: 30px }
 h3 { font-size: 24px }
@@ -56,8 +26,31 @@ h4 { font-size: 20px }
 h5 { font-size: 18px }
 h6 { font-size: 16px }
 
+a, a:visited, a:hover, a:active, a:focus, input, select, textarea { 
+  outline: none; text-decoration: none
+}
+a:hover { color:#333 }
+:focus, .btn:focus { outline: 0 }
+.center { margin:0 auto }
+.fa-li { margin-left:-8px; padding-top:2px }
+.container { overflow: hidden }
+.fa { text-rendering: auto }
+.highlighted { color: $secondary-color }
+
+a {
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  color: $secondary-color
+}
+
+section { padding: 30px 0 }
+#about { padding-top: 100px }
+
 .lead {
-  font-family: Ruluko, arial, Sans-Serif;
+  font-family: $font-stack;
   font-size: 24px;
   font-weight: 400;
   line-height: 40px;
@@ -68,47 +61,38 @@ p { margin-bottom: 20px; }
 #about h6 { margin:20px 0; font-weight:400 }
 
 #header {
-  transition: all .2s ease;
-  -webkit-transition: all .2s ease;
-  -moz-transition: all .2s ease;
   opacity: 0.95;
   border: 0px none;
 }
 
-.navbar-inverse { background-color: #402f35 }
+.navbar-inverse { background-color: $thirdary-color }
 
 #ajax-contact-form { margin-top:30px }
 #ajax-contact-form textarea { height:135px }
 #ajax-contact-form input.form-control,
 #ajax-contact-form textarea.form-control {
   background: transparent;
-  color: #f0f0f0;
+  color: $primary-color;
   background: rgba(255, 255, 255, .2);
   border: 0px none;
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  box-shadow: none;
-  -webkit-box-border-radius: 6px;
-  -moz-box-border-radius: 6px;
-  border-radius: 6px;
   margin-bottom: 15px;
   padding: 8px 10px ;
   font-weight: 100;
   font-size: 16px;
+  @include box-shadow(none);
+  @include border-radius(6px);
 }
-::-webkit-input-placeholder { color: #f0f0f0; opacity: 1.0 }
-:-moz-placeholder { color: #f0f0f0; opacity: 1.0 }
-::-moz-placeholder { color: #f0f0f0; opacity: 1.0 }
-:-ms-input-placeholder { color: #fff; opacity: 1.0 }
+
+.form-control::-webkit-input-placeholder { color: $primary-color; opacity: 1.0 }
+.form-control::-moz-placeholder { color: $primary-color; opacity: 1.0 }
+.form-control::-ms-input-placeholder { color: $primary-color; opacity: 1.0 }
 focus::-webkit-input-placeholder { color: transparent; opacity: 1.0 }
-.form-control input:focus,
-.form-control textarea:focus { color: #f0f0f0; outline: none }
-.form-control::-webkit-input-placeholder { color: #f0f0f0 }
+.form-control input:focus, .form-control textarea:focus { color: $primary-color; outline: none }
 
 .btn-group button.btn {
   padding: 15px 25px;
   background-color: #2E3138;
-  color: #f0f0f0;
+  color: $primary-color;
   font-size: 12px;
   letter-spacing: 2px;
   font-weight: 600;
@@ -116,7 +100,7 @@ focus::-webkit-input-placeholder { color: transparent; opacity: 1.0 }
 }
 
 .btn-group button.btn:hover {
-  background-color: #f0f0f0;
+  background-color: $primary-color;
   cursor: pointer;
   color: #222;
   -webkit-transition: all 0.3s ease-in-out;
@@ -126,58 +110,56 @@ focus::-webkit-input-placeholder { color: transparent; opacity: 1.0 }
   transition: all 0.3s ease-in-out;
 }
 
-#contact h2 { color: #f0f0f0; line-height: 44px }
+#contact h2 { color: $primary-color; line-height: 44px }
 #contact a { color: #444 }
-#contact a:hover { color: #f0f0f0 }
+#contact a:hover { color: $primary-color }
 .inverse { color: #444 }
 
 .social-icons { font-size: 40px; list-style-type: none; margin: 20px 0px 25px -38px; }
 .social-icons li { list-style-type: none; float: left; margin: 20px 15px 25px 0px; }
 .social-icons ul li:last-child { margin-right: 0px; }
-.social-icons li a { color: #f0f0f0 !important; }
+.social-icons li a { color: $primary-color !important; }
 .social-icons li a:hover { color: #2E3138 !important; }
 
-.footer {
-  background: #402f35;
-  margin: 0px auto;
-  padding: 50px 0;
-  text-align: center;
-}
-
 .copyright {
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 200;
   letter-spacing:2px;
   text-transform: uppercase;
-  text-align: center;
-  color: #fff;
+  color: #f0f0f0;
   margin: 10px auto;
 }
 
-#contact { color: #f0f0f0; background: #E84E41 }
-#contact .lead, #contact h1 { color: #f0f0f0 }
+#contact { color: $primary-color; background: $secondary-color }
+#contact .lead, #contact h1 { color: $primary-color }
 
 .avatar-wrapper {
-  left: 40px;
   position: fixed;
   top: 12px;
+  left: 40px;
   z-index: 9999;
 }
 
 figure { margin: 0 }
 
 .user-avatar {
-  background-color: #dfdfdf;
-  border-color: #dfdfdf;
+  background-color: $primary-color;
+  border-color: $primary-color;
   background: #666 50% 50% no-repeat;
   background-size: 106px 106px;
-  border-radius: 50%;
   display: block;
   height: 106px;
   width: 106px;
-  border: 4px solid #f6f6f6;
+  border: 4px solid $primary-color;
   position: relative;
+  @include border-radius(50%);
 }
 
-.footer a { color: #E84E41 }
-.footer a:hover { color: #999 }
+footer {
+  background: $thirdary-color;
+  margin: 0 auto;
+  padding: 50px 0;
+  text-align: center;
+}
+footer a { color: $secondary-color }
+footer a:hover { color: #999 }

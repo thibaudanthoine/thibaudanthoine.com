@@ -1,6 +1,27 @@
-/*
- * The base Sass file - include this at the top of each main sass file
- *
- * This is used to setup variables, import mixins, etc
- */
 @import "compass/css3";
+
+@import "../vendor/sass-bootstrap/lib/bootstrap";
+$fa-font-path:  "../../src/vendor/font-awesome/fonts";
+@import "../vendor/font-awesome/scss/font-awesome";
+
+@import url('http://fonts.googleapis.com/css?family=Dosis|Ruluko');
+
+$font-stack: Ruluko, Arial, Sans-Serif;
+$secondary-font-stack: 'Dosis', Arial, Sans-Serif;
+$primary-color: #f0f0f0;
+$secondary-color: #e84e41;
+$thirdary-color: #402f35;
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -ms-border-radius: $radius;
+  border-radius: $radius;
+}
+
+@mixin box-shadow($shadow) {
+  -webkit-box-shadow: $shadow;
+  -moz-box-shadow: $shadow;
+  -ms-box-shadow: $shadow;
+  box-shadow: $shadow;
+}
