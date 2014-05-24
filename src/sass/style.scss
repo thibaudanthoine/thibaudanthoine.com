@@ -2,7 +2,7 @@
 
 body {
   font-family: $font-stack;
-  font-size: 17px;
+  font-size: 16px;
   line-height: 24px;
   color: #555;
   font-weight: 200;
@@ -66,6 +66,8 @@ p { margin-bottom: 20px; }
 }
 
 .navbar-inverse { background-color: $thirdary-color }
+.navbar-inverse .navbar-nav > li > a { color: $primary-color }
+.navbar-inverse .navbar-nav > li > a:hover { color: $secondary-color }
 
 #ajax-contact-form { margin-top:30px }
 #ajax-contact-form textarea { height:135px }
