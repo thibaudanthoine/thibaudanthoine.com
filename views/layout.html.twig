@@ -78,7 +78,7 @@
                 $('#ajax-contact-form').find('input[type=submit]').attr('disabled', 'disabled');
                 $.ajax({
                     type: 'post',
-                    url: 'mail',
+                    url: '{{ app.url_generator.generate('contact') }}',
                     data: $('#ajax-contact-form').serialize(),
                     success: function(json) {
                         alertify.success(json.message);

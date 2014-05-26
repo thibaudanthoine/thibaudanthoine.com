@@ -2,14 +2,21 @@
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-use Symfony\Component\Validator\Constraints\Collection;
-use Symfony\Component\Validator\Constraints\Email;
-use Symfony\Component\Validator\Constraints\NotBlank;
+use Silex\Provider\FormServiceProvider;
+use Silex\Provider\TwigServiceProvider;
+use Silex\Provider\ValidatorServiceProvider;
+use Silex\Provider\SwiftmailerServiceProvider;
+use Silex\Provider\UrlGeneratorServiceProvider;
+use Silex\Provider\TranslationServiceProvider;
+use DerAlex\Silex\YamlConfigServiceProvider;
+
+use Symfony\Component\Validator\Constraints as Assert;
 
 $app = new Silex\Application();
+$app['debug'] = true;
 
-$app->register(new DerAlex\Silex\YamlConfigServiceProvider(__DIR__ . '/../app/config/settings.yml'));
-$app->register(new Silex\Provider\SwiftmailerServiceProvider(), array(
+$app->register(new YamlConfigServiceProvider(__DIR__ . '/../app/config/settings.yml'));
+$app->register(new SwiftmailerServiceProvider(), array(
     'swiftmailer.options' => array(
         'host'       => $app['config']['swiftmailer']['host'],
         'port'       => $app['config']['swiftmailer']['port'],
@@ -19,8 +26,13 @@ $app->register(new Silex\Provider\SwiftmailerServiceProvider(), array(
         'auth_mode'  => $app['config']['swiftmailer']['auth_mode']
     )
 ));
-$app->register(new Silex\Provider\ValidatorServiceProvider());
-$app->register(new Silex\Provider\TwigServiceProvider(), array(
+$app->register(new UrlGeneratorServiceProvider());
+$app->register(new ValidatorServiceProvider());
+$app->register(new FormServiceProvider());
+$app->register(new TranslationServiceProvider(), array(
+    'translator.messages' => array(),
+));
+$app->register(new TwigServiceProvider(), array(
     'twig.path' => __DIR__ . '/../views'
 ));
 
@@ -28,11 +40,46 @@ $app->register(new Silex\Provider\TwigServiceProvider(), array(
 //    return new \Swift_Mailer($app['swiftmailer.transport']);
 //});
 
-$app->get('/', function() use ($app) {
-    return $app['twig']->render('index.html', array());
+$app->before(function() use ($app) {
+    $app['twig']->addGlobal('layout', $app['twig']->loadTemplate('layout.html.twig'));
 });
 
-$app->post('/mail', function() use ($app) {
+$app->get('/', function() use ($app) {
+    $form = $app['form.factory']->createBuilder('form')
+        ->add('name', 'text', array(
+            'constraints' => array(new Assert\NotBlank(), new Assert\Length(array('min' => 4)))
+        ))
+        ->add('email', 'email', array(
+            'constraints' => array(new Assert\NotBlank(), new Assert\Email())
+        ))
+        ->add('subject', 'text', array(
+            'constraints' => array(new Assert\NotBlank())
+        ))
+        ->add('message', 'textarea', array(
+            'constraints' => array(new Assert\NotBlank())
+        ))
+        ->getForm();
+    return $app['twig']->render('index.html.twig', array('form' => $form->createView()));
+});
+
+$app->post('/contact', function() use ($app) {
+
+    $form = $app['form.factory']->createBuilder('form')
+        ->add('name', 'text', array(
+            'constraints' => array(new Assert\NotBlank(), new Assert\Length(array('min' => 4)))
+        ))
+        ->add('email', 'email', array(
+            'constraints' => array(new Assert\NotBlank(), new Assert\Email())
+        ))
+        ->add('subject', 'text', array(
+            'constraints' => array(new Assert\NotBlank())
+        ))
+        ->add('message', 'textarea', array(
+            'constraints' => array(new Assert\NotBlank())
+        ))
+        ->getForm();
+
+    /*
     $constraints = new Collection(array(
         'email'     => new Email(),
         'subject'   => new NotBlank(),
@@ -54,25 +101,33 @@ $app->post('/mail', function() use ($app) {
     if (count($errorMessages) > 0) {
         return $app->json(array('message' => implode('<br />', $errorMessages)), 404);
     }
+    */
 
-    try {
-        $message = \Swift_Message::newInstance()
-            ->setSubject(sprintf(
-                '[ %s ] %s',
-                $app['request']->get('name'),
-                $app['request']->get('subject')
-            ))
-            ->setFrom(array($app['request']->get('email')))
-            ->setTo(array('thibaud@groovinmove.com'))
-            ->setBody($app['request']->get('message'));
+    $form->handleRequest($request);
 
-        $app['mailer']->send($message);
-    }
-    catch (\Exception $e) {
-        return $app->json(array('message' => 'Sorry, unable to send email'), 500);
+    if ($form->isValid()) {
+        $data = $form->getData();
+
+        try {
+            $message = \Swift_Message::newInstance()
+                ->setSubject(sprintf(
+                    '[ %s ] %s',
+                    $app['request']->get('name'),
+                    $app['request']->get('subject')
+                ))
+                ->setFrom(array($app['request']->get('email')))
+                ->setTo(array('thibaud@groovinmove.com'))
+                ->setBody($app['request']->get('message'));
+
+            $app['mailer']->send($message);
+        }
+        catch (\Exception $e) {
+            return $app->json(array('message' => 'Sorry, unable to send email'), 500);
+        }
     }
 
     return $app->json(array('message' => 'Thank you for your message'));
-});
+})
+->bind('contact');
 
 $app->run();
