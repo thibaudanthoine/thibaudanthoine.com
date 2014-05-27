@@ -1,23 +1,24 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="utf-8" />
+        <meta charset="utf-8"/>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-        <meta name="description" content="Thibaud Anthoine - Chef de projet / Développeur" />
-        <meta name="keywords" content="développeur, développeur web, chef de projet" />
-        <meta name="author" content="Thibaud Anthoine" />
-        <meta name="generator" content="Thibaud Anthoine" />
-        <meta name="robots" content="index,follow" />
-        <meta name="google-site-verification" content="0xwR_9Zn6ylz0dCw4KEa3tyNG39mgMqZQOX8eyg7s7I" />
+        <meta name="description" content="Thibaud Anthoine - Chef de projet / Développeur"/>
+        <meta name="keywords" content="développeur, développeur web, chef de projet"/>
+        <meta name="author" content="Thibaud Anthoine"/>
+        <meta name="generator" content="Thibaud Anthoine"/>
+        <meta name="robots" content="index,follow"/>
+        <meta name="google-site-verification" content="0xwR_9Zn6ylz0dCw4KEa3tyNG39mgMqZQOX8eyg7s7I"/>
 
         <title>Thibaud</title>
-        <link rel="shortcut icon" href="{{ app.request.basepath }}/../dist/img/favicon.ico" type="image/x-icon" />
-        <link rel="canonical" href="http://www.thibaudanthoine.com" />
+        <link rel="shortcut icon" href="{{ app.request.basepath }}/../dist/img/favicon.ico" type="image/x-icon"/>
+        <link rel="canonical" href="http://www.thibaudanthoine.com"/>
 
-        <link rel="stylesheet" type="text/css" href="{{ app.request.basepath }}/../dist/css/style.min.css" />
+        <link rel="stylesheet" type="text/css" href="{{ app.request.basepath }}/../dist/css/style.min.css"/>
+        <!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
     </head>
 
     <body>
@@ -25,7 +26,7 @@
         <figure class="avatar-wrapper">
             <a href="/" style="background-image: url('{{ app.request.basepath }}/../dist/img/tib.jpg')"
                class="user-avatar navbar-brand">
-                <img src="{{ app.request.basepath }}/../dist/img/tib.jpg" alt="Thibaud" class="invisible" />
+                <img src="{{ app.request.basepath }}/../dist/img/tib.jpg" alt="Thibaud" class="invisible"/>
             </a>
         </figure>
 
@@ -33,7 +34,8 @@
             <div class="navbar-inner">
                 <div class="container">
                     <div class="navbar-header">
-                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <button type="button" class="navbar-toggle"
+                                data-toggle="collapse" data-target=".navbar-collapse">
                             <span class="sr-only">Toggle navigation</span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
@@ -66,49 +68,56 @@
             </a>
             <div class="copyright">
                 &copy; 2014 Thibaud
-                <a href="#">Made with Silex, HTML5, CSS3, Javascript, Node, Grunt, Sass, Compass.</a>
+                <a href="#">Made with Silex, HTML5, CSS3, Javascript, Node, Grunt, Sass and Compass.</a>
             </div>
         </footer>
 
         <script type="text/javascript" src="{{ app.request.basepath }}/../dist/js/script.min.js"></script>
         <script type="text/javascript">
         $(function() {
+
+            disabledSubmit = function() {
+                $('#ajax-contact-form').find('button[type=submit]').attr('disabled', 'disabled');
+                $('#ajax-contact-form').find('button[type=submit]').toggleClass('active');
+            };
+
+            enabledSubmit = function() {
+                $('#ajax-contact-form').find('button[type=submit]').attr('disabled', false);
+                $('#ajax-contact-form').find('button[type=submit]').toggleClass('active');
+            };
+
             $('#ajax-contact-form').submit(function(e) {
                 e.preventDefault();
-                $('#ajax-contact-form').find('input[type=submit]').attr('disabled', 'disabled');
+                disabledSubmit();
                 $.ajax({
                     type: 'post',
                     url: '{{ app.url_generator.generate('contact') }}',
                     data: $('#ajax-contact-form').serialize(),
                     success: function(json) {
                         alertify.success(json.message);
-                        $('#ajax-contact-form').find('input[type=submit]').attr('disabled', false);
-                        $('#name, #email, #subject, #message').each(function() {
+                        enabledSubmit();
+                        $('#ajax-contact-form input, #ajax-contact-form textarea').each(function() {
                             $(this).val('');
                         });
                     },
                     error: function(json) {
                         alertify.error(json.responseJSON.message);
-                        $('#ajax-contact-form').find('input[type=submit]').attr('disabled', false);
+                        enabledSubmit();
                     }
                 });
             });
         });
         </script>
-
-        <!--[if lt IE 9]>
-        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
-        <![endif]-->
-
         <script type="text/javascript">
-        var _gaq = _gaq || [];
-        _gaq.push(['_setAccount', 'UA-23217273-1']);
-        _gaq.push(['_trackPageview']);
-        (function() {
-            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-        })();
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-23217273-1']);
+            _gaq.push(['_trackPageview']);
+            (function() {
+                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www')
+                    + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();
         </script>
     </body>
 </html>

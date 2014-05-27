@@ -25,3 +25,19 @@ $thirdary-color: #402f35;
   -ms-box-shadow: $shadow;
   box-shadow: $shadow;
 }
+
+@mixin transition($transition) {
+  -webkit-transition: $transition;
+  -moz-transition: $transition;
+  -o-transition: $transition;
+  -ms-transition: $transition;
+  transition: $transition;
+}
+
+@mixin spinner-transition($opacity, $max-width) {
+  -webkit-transition: opacity $opacity, max-width $max-width;
+  -moz-transition: opacity $opacity, max-width $max-width;
+  -o-transition: opacity $opacity, max-width $max-width;
+  -ms-transition: opacity $opacity, max-width $max-width;
+  transition: opacity $opacity, max-width $max-width;
+}

@@ -3,7 +3,7 @@ thibaudanthoine.com
 
 My personal website.
 
-Using Silex, HTML5, CSS3, Javascript, Node, Grunt, Sass, Compass.
+Using Silex, HTML5, CSS3, Javascript, Node, Grunt, Sass and Compass.
 
 ### Installation
 
@@ -17,7 +17,13 @@ npm install -g grunt-cli
 npm install -g bower
 ```
 
-2 - Install bower and node dependencies:
+2 - Install composer dependencies:
+
+```
+composer install
+```
+
+3 - Install bower and node dependencies:
 
 ```
 bower install
@@ -27,7 +33,7 @@ bower install
 npm install
 ```
 
-3 - Launch Grunt:
+4 - Launch Grunt:
 
 ```
 grunt

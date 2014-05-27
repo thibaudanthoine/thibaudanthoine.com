@@ -11,7 +11,9 @@
                     <span class="highlighted">
                     <strong>
                         <a href="http://www.zend.com/fr/store/education/certification/authenticate.php/ClientCandidateID/ZEND013240/RegistrationID/234368098"
-                           target="_blank">Zend Certified Engineer PHP5</a>
+                           target="_blank">
+                            Zend Certified Engineer PHP5
+                        </a>
                     </strong>
                     </span>, je travaille principalement sur des architectures open-sources /
                     <span class="highlighted">PHP</span> /
@@ -38,10 +40,12 @@
                 <div class="lead">
                     Restons en <strong>contact</strong> !
                 </div>
-
                 <div class="row">
                     <div class="col-sm-6 col-lg-6">
-                        <h2>Intéressé par mes compétences <br />ou simplement une question, un commentaire, une idée ?</h2>
+                        <h2>
+                            Intéressé par mes compétences<br />
+                            ou simplement une question, un commentaire, une idée ?
+                        </h2>
                         <p>
                             Contactez moi par mail ou via le formulaire.
                             <br />
@@ -68,55 +72,57 @@
 
                         <ul class="social-icons">
                             <li>
-                                <a href="http://www.linkedin.com/in/thibaudanthoine" target="_blank">
-                                    <i class="fa fa-linkedin"></i>
+                                <a href="http://www.linkedin.com/in/thibaudanthoine"
+                                   target="_blank"><i class="fa fa-linkedin"></i>
                                 </a>
                             </li>
                             <li>
-                                <a href="http://github.com/thibaudanthoine" target="_blank">
-                                    <i class="fa fa-github"></i>
+                                <a href="http://github.com/thibaudanthoine"
+                                   target="_blank"><i class="fa fa-github"></i>
                                 </a>
                             </li>
                             <li>
-                                <a href="http://www.twitter.com/thibaudanthoine" target="_blank">
-                                    <i class="fa fa-twitter"></i>
+                                <a href="http://www.twitter.com/thibaudanthoine"
+                                   target="_blank"><i class="fa fa-twitter"></i>
                                 </a>
                             </li>
                             <li>
-                                <a href="http://www.flickr.com/thibaudanthoine" target="_blank">
-                                    <i class="fa fa-flickr"></i>
+                                <a href="http://www.flickr.com/thibaudanthoine"
+                                   target="_blank"><i class="fa fa-flickr"></i>
                                 </a>
                             </li>
                         </ul>
                     </div>
 
                     <div class="col-sm-6 col-lg-6">
-
-                        <form method="post" action="{{ app.url_generator.generate('contact') }}" id="ajax-contact-form" role="form">
+                        <form method="post" action="{{ app.url_generator.generate('contact') }}"
+                              id="ajax-contact-form" role="form">
                             <div class="form-group">
                                 <div class="col-xs-12 col-md-12">
-                                    {{ form_widget(form.name, { 'attr': { 'class': 'form-control', 'placeholder': 'Nom' } }) }}
+                                    {{ form_widget(form.name) }}
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="col-xs-12 col-md-12">
-                                    {{ form_widget(form.email, { 'attr': { 'class': 'form-control', 'placeholder': 'Email' } }) }}
+                                    {{ form_widget(form.email) }}
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="col-xs-12 col-md-12">
-                                    {{ form_widget(form.subject, { 'attr': { 'class': 'form-control', 'placeholder': 'Sujet' } }) }}
+                                    {{ form_widget(form.subject) }}
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="col-xs-12 col-md-12">
-                                    {{ form_widget(form.message, { 'attr': { 'class': 'form-control', 'placeholder': 'Message' } }) }}
+                                    {{ form_widget(form.message) }}
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="col-xs-12 col-md-12">
                                     <div class="btn-group">
-                                        <button type="submit" class="btn">Submit</button>
+                                        <button type="submit" class="btn has-spinner">
+                                            <span class="spinner"><i class="icon-spin icon-refresh"></i></span>Submit
+                                        </button>
                                     </div>
                                     <div class="btn-group">
                                         <button type="reset" class="btn">Reset</button>
