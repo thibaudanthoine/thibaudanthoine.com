@@ -10,6 +10,7 @@ use Silex\Provider\UrlGeneratorServiceProvider;
 use Silex\Provider\TranslationServiceProvider;
 use DerAlex\Silex\YamlConfigServiceProvider;
 
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Validator\Constraints as Assert;
 
 $app = new Silex\Application();
@@ -62,7 +63,7 @@ $app->get('/', function() use ($app) {
     return $app['twig']->render('index.html.twig', array('form' => $form->createView()));
 });
 
-$app->post('/contact', function() use ($app) {
+$app->post('/contact', function(Request $request) use ($app) {
 
     $form = $app['form.factory']->createBuilder('form')
         ->add('name', 'text', array(
@@ -112,17 +113,17 @@ $app->post('/contact', function() use ($app) {
             $message = \Swift_Message::newInstance()
                 ->setSubject(sprintf(
                     '[ %s ] %s',
-                    $app['request']->get('name'),
-                    $app['request']->get('subject')
+                    $data['name'],
+                    $data['subject']
                 ))
-                ->setFrom(array($app['request']->get('email')))
+                ->setFrom(array($data['email']))
                 ->setTo(array('thibaud@groovinmove.com'))
-                ->setBody($app['request']->get('message'));
+                ->setBody($data['message']);
 
             $app['mailer']->send($message);
         }
         catch (\Exception $e) {
-            return $app->json(array('message' => 'Sorry, unable to send email'), 500);
+            return $app->json(array('message' => 'Sorry, unable to send email') . $e->getMessage(), 500);
         }
     }
 
