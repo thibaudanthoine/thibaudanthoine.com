@@ -26,6 +26,8 @@ $app->post('/contact', function(Request $request) use ($app) {
     $form = $app['form.factory']->create(new ContactType());
     $form->handleRequest($request);
 
+    sleep(1);
+
     if (!$form->isValid()) {
         $fieldsErrors = array(
             'name' => $form->get('name')->getErrors(),

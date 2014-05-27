@@ -158,15 +158,3 @@ footer {
 }
 footer a { color: $secondary-color }
 footer a:hover { color: #999 }
-
-.spinner {
-  display: inline-block;
-  opacity: 0;
-  max-width: 0;
-  @include spinner-transition(0.25s, 0.45s);
-}
-
-.has-spinner.active .spinner {
-  opacity: 1;
-  max-width: 50px;
-}

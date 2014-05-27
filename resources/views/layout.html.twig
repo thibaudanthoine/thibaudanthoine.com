@@ -78,12 +78,12 @@
 
             disabledSubmit = function() {
                 $('#ajax-contact-form').find('button[type=submit]').attr('disabled', 'disabled');
-                $('#ajax-contact-form').find('button[type=submit]').toggleClass('active');
+                $('#ajax-contact-form').find('button[type=submit]').html('Sending...');
             };
 
             enabledSubmit = function() {
                 $('#ajax-contact-form').find('button[type=submit]').attr('disabled', false);
-                $('#ajax-contact-form').find('button[type=submit]').toggleClass('active');
+                $('#ajax-contact-form').find('button[type=submit]').html('Submit');
             };
 
             $('#ajax-contact-form').submit(function(e) {
