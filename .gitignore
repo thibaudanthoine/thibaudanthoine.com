@@ -1,10 +1,12 @@
-/app/config/settings.yml
 /dist
 /node_modules
 /src/vendor
 /.sass-cache
 /src/css
-.DS_Store
-.idea
 /vendor
 /composer.lock
+/resources/cache/*
+/resources/log/*
+.DS_Store
+.idea
+/resources/config/settings.yml
