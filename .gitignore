@@ -9,4 +9,3 @@
 /resources/log/*
 .DS_Store
 .idea
-/resources/config/settings.yml
