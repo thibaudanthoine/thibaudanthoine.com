@@ -8,12 +8,12 @@ $fa-font-path:  "../../src/vendor/font-awesome/fonts";
 
 $font-stack: Ruluko, Arial, Sans-Serif;
 $secondary-font-stack: 'Dosis', Arial, Sans-Serif;
-$primary-color: #F0DCB7;  /* #f1d7a6 #f0f0f0 */
+$primary-color: #f0f0f0;  /* #f1d7a6 */
 $secondary-color: #e84e41;
 $thirdary-color: #402f35;
 
-$lead-font-color: #444; /* #666 */
-$body-font-color: #333;  /* #555 */
+$lead-font-color: #454545;
+$body-font-color: #353535;
 
 @mixin border-radius($radius) {
   -webkit-border-radius: $radius;
