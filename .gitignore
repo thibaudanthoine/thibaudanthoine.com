@@ -7,6 +7,8 @@
 /composer.lock
 /resources/cache/*
 /resources/log/*
+/resources/config/*
+!/resources/config/settings.yml.dist
 .DS_Store
 .idea
 settings.yml
