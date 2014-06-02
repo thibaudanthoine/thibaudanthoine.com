@@ -3,7 +3,7 @@ thibaudanthoine.com
 
 My personal website.
 
-Using Silex, HTML5, CSS3, Javascript, Node, Grunt, Sass and Compass.
+Using Silex, Twig, HTML5/CSS3, Javascript, Grunt, Sass and Compass.
 
 ### Installation
 
