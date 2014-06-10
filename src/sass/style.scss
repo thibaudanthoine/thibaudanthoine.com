@@ -1,5 +1,9 @@
 @import "base";
 
+* {
+  @include transition(all 0.3s ease-in-out);
+}
+
 body {
   font-family: $font-stack;
   font-size: 16px;
@@ -149,6 +153,11 @@ figure { margin: 0 }
   border: 4px solid $primary-color;
   position: relative;
   @include border-radius(50%);
+}
+
+figure a:hover {
+  -webkit-transform: rotate(-360deg);
+  transform: rotate(-360deg);
 }
 
 footer {
