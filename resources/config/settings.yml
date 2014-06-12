@@ -5,3 +5,8 @@ swiftmailer:
     password: password
     encryption:
     auth_mode: login
+
+instagram:
+    user_id: userid
+    access_token: accesstoken
+    api_base_url: https://api.instagram.com

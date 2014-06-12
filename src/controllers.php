@@ -19,6 +19,14 @@ $app->get('/', function() use ($app) {
     return $app['twig']->render('index.html.twig', array('form' => $form->createView()));
 });
 
+
+/**
+ * Media
+ */
+$app->get('/media', function() use ($app) {
+    return $app['twig']->render('media.html.twig');
+})->bind('media');
+
 /**
  * Ajax contact post
  */

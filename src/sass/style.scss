@@ -110,6 +110,32 @@ focus::-webkit-input-placeholder { color: transparent; opacity: 1.0 }
   @include transition(all 0.3s ease-in-out);
 }
 
+.thumbnail { padding: 9px 4px 4px 4px }
+.caption {
+  font-size: 12px;
+  padding: 9px 4px;
+  max-height: 94px;
+  overflow: hidden;
+}
+.caption p { margin-bottom: 0 }
+
+.bordered-color {
+  clear: both;
+  height: 8px;
+}
+
+.border {
+  width: 33.33%;
+  float: left;
+  height: 8px;
+}
+
+.orange { background-color: #e89141 }
+.blue { background-color: #2a828e }
+.green { background-color: #32b248 }
+
+#contact { color: $primary-color; background: $secondary-color }
+#contact .lead, #contact h1 { color: $primary-color }
 #contact h2 { color: $primary-color; line-height: 44px }
 #contact a { color: #444 }
 #contact a:hover { color: $primary-color }
@@ -129,9 +155,6 @@ focus::-webkit-input-placeholder { color: transparent; opacity: 1.0 }
   color: $primary-color;
   margin: 10px auto;
 }
-
-#contact { color: $primary-color; background: $secondary-color }
-#contact .lead, #contact h1 { color: $primary-color }
 
 .avatar-wrapper {
   position: fixed;

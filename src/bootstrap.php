@@ -8,6 +8,8 @@ use Silex\Provider\UrlGeneratorServiceProvider;
 use Silex\Provider\TranslationServiceProvider;
 use Silex\Provider\MonologServiceProvider;
 use DerAlex\Silex\YamlConfigServiceProvider;
+use Thibaud\Silex\Provider\InstagramMinimalistServiceProvider;
+use Thibaud\Twig\Extension\InstagramMinimalistExtension;
 
 $app = new Silex\Application();
 
@@ -39,6 +41,23 @@ $app->register(new MonologServiceProvider(), array(
     'monolog.name'    => 'personal_app',
     'monolog.level'   => 300
 ));
+
+$app->register(new InstagramMinimalistServiceProvider(), array(
+    'instagram.user_id' => $app['config']['instagram']['user_id'],
+    'instagram.access_token' => $app['config']['instagram']['access_token'],
+    'instagram.api.base_url' => $app['config']['instagram']['api_base_url']
+));
+
+$app['twig'] = $app->share(
+    $app->extend(
+        'twig',
+        function ($twig, $app) {
+            $twig->addExtension(new InstagramMinimalistExtension($app));
+            $twig->addExtension(new Twig_Extensions_Extension_Text($app));
+            return $twig;
+        }
+    )
+);
 
 /*$app['mailer'] = $app->share(function ($app) {
     return new \Swift_Mailer($app['swiftmailer.transport']);
