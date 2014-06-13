@@ -7,14 +7,14 @@ use Symfony\Component\HttpFoundation\Response;
 /**
  * Layout
  */
-$app->before(function() use ($app) {
+$app->before(function () use ($app) {
     $app['twig']->addGlobal('layout', $app['twig']->loadTemplate('layout.html.twig'));
 });
 
 /**
  * Index
  */
-$app->get('/', function() use ($app) {
+$app->get('/', function () use ($app) {
     $form = $app['form.factory']->create(new ContactType());
     return $app['twig']->render('index.html.twig', array('form' => $form->createView()));
 });
@@ -22,14 +22,14 @@ $app->get('/', function() use ($app) {
 /**
  * Media
  */
-$app->get('/media', function() use ($app) {
+$app->get('/media', function () use ($app) {
     return $app['twig']->render('media.html.twig');
 })->bind('media');
 
 /**
  * Ajax contact post
  */
-$app->post('/contact', function(Request $request) use ($app) {
+$app->post('/contact', function (Request $request) use ($app) {
     $form = $app['form.factory']->create(new ContactType());
     $form->handleRequest($request);
 
@@ -73,3 +73,19 @@ $app->post('/contact', function(Request $request) use ($app) {
 
     return $app->json(array('message' => 'Thank you for your message'));
 })->bind('contact');
+
+/**
+ * Error
+ */
+$app->error(function (\Exception $e, $code) use ($app) {
+    if ($app['debug']) {
+        return;
+    }
+
+    $template = '500.html.twig';
+    if (404 == (integer) $code) {
+        $template = '404.html.twig';
+    }
+
+    return new Response($app['twig']->resolveTemplate($template)->render(array('code' => $code)), $code);
+});

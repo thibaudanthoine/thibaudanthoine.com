@@ -1,6 +1,7 @@
 {
     "require": {
         "silex/silex": "~1.2",
+        "silex/web-profiler": "~1.0",
         "swiftmailer/swiftmailer": ">=4.1.2,<4.2-dev",
         "twig/twig": ">=1.8,<2.0-dev",
         "symfony/validator": "~2.3",

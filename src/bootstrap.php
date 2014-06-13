@@ -1,13 +1,14 @@
 <?php
 
-use Silex\Provider\FormServiceProvider;
 use Silex\Provider\TwigServiceProvider;
-use Silex\Provider\ValidatorServiceProvider;
-use Silex\Provider\SwiftmailerServiceProvider;
 use Silex\Provider\UrlGeneratorServiceProvider;
-use Silex\Provider\TranslationServiceProvider;
-use Silex\Provider\MonologServiceProvider;
+use Silex\Provider\ValidatorServiceProvider;
+use Silex\Provider\ServiceControllerServiceProvider;
+use Silex\Provider\FormServiceProvider;
 use DerAlex\Silex\YamlConfigServiceProvider;
+use Silex\Provider\SwiftmailerServiceProvider;
+use Silex\Provider\TranslationServiceProvider;
+
 use Thibaud\Silex\Provider\InstagramMinimalistServiceProvider;
 use Thibaud\Twig\Extension\InstagramMinimalistExtension;
 
@@ -15,6 +16,7 @@ $app = new Silex\Application();
 
 $app->register(new UrlGeneratorServiceProvider());
 $app->register(new ValidatorServiceProvider());
+$app->register(new ServiceControllerServiceProvider());
 $app->register(new FormServiceProvider());
 $app->register(new YamlConfigServiceProvider(__DIR__ . '/../resources/config/settings.yml'));
 $app->register(new SwiftmailerServiceProvider(), array(
@@ -34,12 +36,6 @@ $app->register(new TranslationServiceProvider(), array(
 
 $app->register(new TwigServiceProvider(), array(
     'twig.path' => __DIR__ . '/../resources/views'
-));
-
-$app->register(new MonologServiceProvider(), array(
-    'monolog.logfile' => __DIR__ . '/../resources/log/app.log',
-    'monolog.name'    => 'personal_app',
-    'monolog.level'   => 300
 ));
 
 $app->register(new InstagramMinimalistServiceProvider(), array(
