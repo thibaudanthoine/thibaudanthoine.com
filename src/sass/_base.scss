@@ -4,11 +4,12 @@
 $fa-font-path:  "../../src/vendor/font-awesome/fonts";
 @import "../vendor/font-awesome/scss/font-awesome";
 
-@import url('http://fonts.googleapis.com/css?family=Dosis|Ruluko');
+/*@import url('http://fonts.googleapis.com/css?family=Dosis|Ruluko');*/
+@import url('http://fonts.googleapis.com/css?family=Ruluko');
 
 $font-stack: Ruluko, Arial, Sans-Serif;
-$secondary-font-stack: 'Dosis', Arial, Sans-Serif;
-$primary-color: #f0f0f0;  /* #f1d7a6 */
+/*$secondary-font-stack: 'Dosis', Arial, Sans-Serif;*/
+$primary-color: #fff;  /* #f0f0f0 #f1d7a6 */
 $secondary-color: #e84e41;
 $thirdary-color: #402f35;
 
