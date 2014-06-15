@@ -1,9 +1,5 @@
 @import "base";
 
-* {
-  @include transition(all 0.3s ease-in-out);
-}
-
 body {
   font-family: $font-stack;
   font-size: 16px;
@@ -26,7 +22,7 @@ h1 {
   font-family: $secondary-font-stack;
   margin-bottom: 0
 }
-h2 { font-size: 30px }
+h2 { font-size: 26px; margin-top: 10px }
 h3 { font-size: 24px }
 h4 { font-size: 20px }
 h5 { font-size: 18px }
@@ -49,18 +45,18 @@ a {
 }
 
 section { padding: 30px 0 }
-#about { padding-top: 100px }
+#about { padding-top: 80px }
 
 .lead {
   font-family: $font-stack;
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 400;
-  line-height: 40px;
+  line-height: 30px;
   color: $lead-font-color;
 }
 
 p { margin-bottom: 20px; }
-#about h6 { margin:20px 0; font-weight:400 }
+#about h6 { margin: 20px 0; font-weight:400 }
 
 #header {
   opacity: 0.95;
@@ -71,7 +67,6 @@ p { margin-bottom: 20px; }
 .navbar-inverse .navbar-nav > li > a { color: $primary-color }
 .navbar-inverse .navbar-nav > li > a:hover { color: $secondary-color }
 
-#ajax-contact-form { margin-top:30px }
 #ajax-contact-form textarea { height:135px }
 #ajax-contact-form input.form-control,
 #ajax-contact-form textarea.form-control {
@@ -136,7 +131,7 @@ focus::-webkit-input-placeholder { color: transparent; opacity: 1.0 }
 
 #contact { color: $primary-color; background: $secondary-color }
 #contact .lead, #contact h1 { color: $primary-color }
-#contact h2 { color: $primary-color; line-height: 44px }
+#contact h2 { color: $primary-color; line-height: 40px }
 #contact a { color: #444 }
 #contact a:hover { color: $primary-color }
 .inverse { color: #444 }
@@ -158,7 +153,7 @@ focus::-webkit-input-placeholder { color: transparent; opacity: 1.0 }
 
 .avatar-wrapper {
   position: fixed;
-  top: 12px;
+  top: -5px;
   left: 40px;
   z-index: 9999;
 }
