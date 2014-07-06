@@ -18,11 +18,11 @@ h2, h3, h4, h5, h6 { font-family: $font-stack }
 h1 {
   font-weight: 100;
   text-transform: uppercase;
-  font-size: 52px;
+  font-size: 48px;
   font-family: $font-stack;
   margin-bottom: 0
 }
-h2 { font-size: 26px; margin-top: 10px }
+h2 { font-size: 24px; margin-top: 10px }
 h3 { font-size: 24px }
 h4 { font-size: 20px }
 h5 { font-size: 18px }
@@ -45,11 +45,13 @@ a {
 }
 
 section { padding: 30px 0 }
-#about { padding-top: 80px }
+#about {
+  padding-top: 80px
+}
 
 .lead {
   font-family: $font-stack;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 400;
   line-height: 30px;
   color: $lead-font-color;
@@ -131,7 +133,7 @@ focus::-webkit-input-placeholder { color: transparent; opacity: 1.0 }
 
 #contact { color: $primary-color; background: $secondary-color }
 #contact .lead, #contact h1 { color: $primary-color }
-#contact h2 { color: $primary-color; line-height: 40px }
+#contact h2 { color: $primary-color; line-height: 30px }
 #contact a { color: #444 }
 #contact a:hover { color: $primary-color }
 .inverse { color: #444 }
