@@ -80,6 +80,8 @@ mixpanel.init("10a83749ff53603562adb6170c4b51a0");</script><!-- end Mixpanel -->
         <script type="text/javascript">
         $(function() {
 
+	    mixpanel.track('Hello from index');
+
             disabledSubmit = function() {
                 $('#ajax-contact-form').find('button[type=submit]').attr('disabled', 'disabled');
                 $('#ajax-contact-form').find('button[type=submit]').html('Sending...');
