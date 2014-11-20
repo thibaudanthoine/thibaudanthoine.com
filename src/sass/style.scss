@@ -20,7 +20,8 @@ h1 {
   text-transform: uppercase;
   font-size: 48px;
   font-family: $font-stack;
-  margin-bottom: 0
+  margin-bottom: 0;
+  opacity: 0.6;
 }
 h2 { font-size: 24px; margin-top: 10px }
 h3 { font-size: 24px }
@@ -69,28 +70,36 @@ p { margin-bottom: 20px; }
 .navbar-inverse .navbar-nav > li > a { color: $primary-color }
 .navbar-inverse .navbar-nav > li > a:hover { color: $secondary-color }
 
+#ajax-contact-form input.form-control { height:auto }
 #ajax-contact-form textarea { height:135px }
 #ajax-contact-form input.form-control,
 #ajax-contact-form textarea.form-control {
+  border: 2px solid #fff;
   background: transparent;
   color: $primary-color;
-  background: rgba(255, 255, 255, .2);
-  border: 0px none;
+  /*background: rgba(255, 255, 255, .2);*/
+  /*border: 0px none;*/
   margin-bottom: 15px;
-  padding: 8px 10px ;
+  padding: 10px 10px;
   font-weight: 100;
   font-size: 16px;
   @include box-shadow(none);
   @include border-radius(6px);
 }
 
-.form-control::-webkit-input-placeholder { color: $primary-color; opacity: 1.0 }
-.form-control::-moz-placeholder { color: $primary-color; opacity: 1.0 }
-.form-control::-ms-input-placeholder { color: $primary-color; opacity: 1.0 }
+#ajax-contact-form input.form-control:focus,
+#ajax-contact-form textarea.form-control:focus {
+  background-color: #E77167;
+}
+
+.form-control::-webkit-input-placeholder { color: $primary-color; opacity: 0.5 }
+.form-control::-moz-placeholder { color: $primary-color; opacity: 0.5 }
+.form-control::-ms-input-placeholder { color: $primary-color; opacity: 0.5 }
 focus::-webkit-input-placeholder { color: transparent; opacity: 1.0 }
 .form-control input:focus, .form-control textarea:focus { color: $primary-color; outline: none }
 
 .btn-group button.btn {
+  border: 2px solid #fff;
   padding: 15px 25px;
   background-color: #2E3138;
   color: $primary-color;
