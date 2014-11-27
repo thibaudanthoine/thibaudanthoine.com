@@ -82,10 +82,13 @@ $app->error(function (\Exception $e, $code) use ($app) {
         return;
     }
 
-    $template = '500.html.twig';
-    if (404 == (integer) $code) {
-        $template = '404.html.twig';
+    switch ($code) {
+        case 404:
+            $message = $app['twig']->render('404.html.twig');
+            break;
+        default:
+            $message = $app['twig']->render('500.html.twig');
     }
 
-    return new Response($app['twig']->resolveTemplate($template)->render(array('code' => $code)), $code);
+    return new Response($message, $code);
 });

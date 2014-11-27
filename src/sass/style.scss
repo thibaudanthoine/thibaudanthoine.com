@@ -21,8 +21,8 @@ h1 {
   font-size: 48px;
   font-family: 'Yellowtail', cursive;
   margin-bottom: 0;
-  opacity: 0.6;
-  margin-top: 15px;
+  opacity: 0.8;
+  margin-top: 10px;
 }
 h2 { font-size: 24px; margin-top: 10px }
 h3 { font-size: 24px }
@@ -198,3 +198,5 @@ footer {
 }
 footer a { color: $secondary-color }
 footer a:hover { color: #999 }
+
+.no-margin { margin: 0 }
