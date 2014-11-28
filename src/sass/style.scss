@@ -15,7 +15,7 @@ body {
 
 h2, h3, h4, h5, h6 { font-family: $font-stack }
 
-h1 {
+.h1 {
   font-weight: 100;
   text-transform: uppercase;
   font-size: 48px;
@@ -142,7 +142,7 @@ focus::-webkit-input-placeholder { color: transparent; opacity: 1.0 }
 .green { background-color: #32b248 }
 
 #contact { color: $primary-color; background: $secondary-color }
-#contact .lead, #contact h1 { color: $primary-color }
+#contact .lead, #contact .h1 { color: $primary-color }
 #contact h2 { color: $primary-color; line-height: 30px }
 #contact a { color: #444 }
 #contact a:hover { color: $primary-color }
