@@ -18,14 +18,22 @@ h2, h3, h4, h5, h6 { font-family: $font-stack }
 .h1 {
   font-weight: 100;
   text-transform: uppercase;
-  font-size: 48px;
+  font-size: 42px;
   font-family: 'Yellowtail', cursive;
   margin-bottom: 0;
   opacity: 0.8;
-  margin-top: 15px;
+  margin-top: 20px;
 }
-h2 { font-size: 24px; margin-top: 10px }
-h3 { font-size: 24px }
+
+h2 {
+  font-size: 16px;
+  font-weight: 400;
+  color: #aaa;
+  margin-top: 0;
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+}
+
 h4 { font-size: 20px }
 h5 { font-size: 18px }
 h6 { font-size: 16px }
@@ -55,7 +63,7 @@ section { padding: 30px 0 }
   font-family: $font-stack;
   font-size: 18px;
   font-weight: 400;
-  line-height: 30px;
+  line-height: 28px;
   color: $lead-font-color;
 }
 
@@ -81,7 +89,6 @@ p { margin-bottom: 20px; }
   /*background: rgba(255, 255, 255, .2);*/
   /*border: 0px none;*/
   margin-bottom: 15px;
-  padding: 10px 10px;
   font-weight: 100;
   font-size: 16px;
   @include box-shadow(none);
@@ -128,13 +135,13 @@ focus::-webkit-input-placeholder { color: transparent; opacity: 1.0 }
 
 .bordered-color {
   clear: both;
-  height: 8px;
+  height: 6px;
 }
 
 .border {
   width: 33.33%;
   float: left;
-  height: 8px;
+  height: 6px;
 }
 
 .orange { background-color: #e89141 }
@@ -142,13 +149,13 @@ focus::-webkit-input-placeholder { color: transparent; opacity: 1.0 }
 .green { background-color: #32b248 }
 
 #contact { color: $primary-color; background: $secondary-color }
-#contact .lead, #contact .h1 { color: $primary-color }
-#contact h2 { color: $primary-color; line-height: 30px }
+#contact h2, #contact .h1 { color: $primary-color }
 #contact a { color: #444 }
 #contact a:hover { color: $primary-color }
+#contact .row p { font-size: 18px }
 .inverse { color: #444 }
 
-.social-icons { font-size: 40px; list-style-type: none; margin: 20px 0px 25px -38px }
+.social-icons { font-size: 30px; list-style-type: none; margin: 20px 0px 25px -38px }
 .social-icons li { list-style-type: none; float: left; margin: 20px 15px 25px 0px }
 .social-icons ul li:last-child { margin-right: 0px }
 .social-icons li a { color: $primary-color !important }
