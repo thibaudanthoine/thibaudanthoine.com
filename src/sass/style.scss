@@ -79,6 +79,7 @@ p { margin-bottom: 20px; }
 .navbar-inverse .navbar-nav > li > a { color: $primary-color }
 .navbar-inverse .navbar-nav > li > a:hover { color: $secondary-color }
 
+#ajax-contact-form { margin-top: -20px }
 #ajax-contact-form input.form-control { height:auto }
 #ajax-contact-form textarea { height:135px }
 #ajax-contact-form input.form-control,
