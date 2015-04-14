@@ -2,11 +2,11 @@
 
 body {
   font-family: $font-stack;
-  font-size: 16px;
-  font-size: 1.6rem;
+  font-size: 14px;
+  /*font-size: 1.6rem;*/
   line-height: 24px;
   color: $body-font-color;
-  font-weight: 200;
+  /*font-weight: 200;*/
   background: $primary-color;
   margin: 0;
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
@@ -21,20 +21,18 @@ h2, h3, h4, h5, h6 { font-family: $font-stack }
   font-size: 42px;
   font-family: 'Yellowtail', cursive;
   margin-bottom: 0;
-  opacity: 0.8;
   margin-top: 20px;
 }
 
 h2 {
   font-size: 16px;
-  font-weight: 400;
   color: #aaa;
   margin-top: 0;
   margin-bottom: 20px;
-  letter-spacing: 1px;
+  font-weight: normal;
 }
 
-h4 { font-size: 20px }
+h4 { font-size: 18px; margin-bottom: 4px }
 h5 { font-size: 18px }
 h6 { font-size: 16px }
 
@@ -61,7 +59,7 @@ section { padding: 30px 0 }
 
 .lead {
   font-family: $font-stack;
-  font-size: 17px;
+  font-size: 16px;
   font-weight: 400;
   line-height: 28px;
   color: $lead-font-color;
@@ -79,7 +77,7 @@ p { margin-bottom: 20px; }
 .navbar-inverse .navbar-nav > li > a { color: $primary-color }
 .navbar-inverse .navbar-nav > li > a:hover { color: $secondary-color }
 
-#ajax-contact-form { margin-top: -20px }
+#ajax-contact-form { margin-top: 30px }
 #ajax-contact-form input.form-control { height:auto }
 #ajax-contact-form textarea { height:135px }
 #ajax-contact-form input.form-control,
@@ -90,8 +88,8 @@ p { margin-bottom: 20px; }
   /*background: rgba(255, 255, 255, .2);*/
   /*border: 0px none;*/
   margin-bottom: 15px;
-  font-weight: 100;
-  font-size: 16px;
+  /*font-weight: 100;*/
+  font-size: 15px;
   @include box-shadow(none);
   @include border-radius(6px);
 }
@@ -101,20 +99,20 @@ p { margin-bottom: 20px; }
   background-color: #E77167;
 }
 
-.form-control::-webkit-input-placeholder { color: $primary-color; opacity: 0.5 }
-.form-control::-moz-placeholder { color: $primary-color; opacity: 0.5 }
-.form-control::-ms-input-placeholder { color: $primary-color; opacity: 0.5 }
+.form-control::-webkit-input-placeholder { color: $primary-color; opacity: 0.6 }
+.form-control::-moz-placeholder { color: $primary-color; opacity: 0.6 }
+.form-control::-ms-input-placeholder { color: $primary-color; opacity: 0.6 }
 focus::-webkit-input-placeholder { color: transparent; opacity: 1.0 }
 .form-control input:focus, .form-control textarea:focus { color: $primary-color; outline: none }
 
 .btn-group button.btn {
-  padding: 15px 25px;
+  padding: 10px 20px;
   background-color: #2E3138;
   color: $primary-color;
-  font-size: 12px;
-  letter-spacing: 2px;
-  font-weight: 600;
-  text-transform: uppercase;
+  font-size: 14px;
+  /*letter-spacing: 2px;*/
+  /*font-weight: 600;*/
+  /*text-transform: uppercase;*/
 }
 
 .btn-group button.btn:hover {
@@ -126,7 +124,7 @@ focus::-webkit-input-placeholder { color: transparent; opacity: 1.0 }
 
 .thumbnail { padding: 9px 4px 4px 4px }
 .caption {
-  font-size: 12px;
+  font-size: 11px;
   padding: 9px 4px;
   max-height: 94px;
   overflow: hidden;
@@ -152,7 +150,7 @@ focus::-webkit-input-placeholder { color: transparent; opacity: 1.0 }
 #contact h2, #contact .h1 { color: $primary-color }
 #contact a { color: #444 }
 #contact a:hover { color: $primary-color }
-#contact .row p { font-size: 17px }
+#contact .row p { font-size: 16px }
 .inverse { color: #444 }
 
 .social-icons { font-size: 35px; list-style-type: none; margin: 0px 0px 0px -38px }
@@ -162,10 +160,10 @@ focus::-webkit-input-placeholder { color: transparent; opacity: 1.0 }
 .social-icons li a:hover { color: #2E3138 !important }
 
 .copyright {
-  font-size: 12px;
-  font-weight: 200;
-  letter-spacing:2px;
-  text-transform: uppercase;
+  font-size: 14px;
+  /*font-weight: 200;*/
+  /*letter-spacing:2px;*/
+  /*text-transform: uppercase;*/
   color: $primary-color;
   margin: 10px auto;
 }
