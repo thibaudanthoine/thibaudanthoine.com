@@ -1,8 +1,6 @@
 thibaudanthoine.com
 ===================
 
-My personal website.
-
 Using Silex, Twig, HTML5/CSS3, Javascript, Grunt, Sass and Compass.
 
 ### Installation
